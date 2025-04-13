@@ -1,0 +1,56 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+header,
+footer {
+  text-align: center;
+  background-color: steelblue;
+  color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+main {
+  flex: 1;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+main > ul {
+  line-height: 1.5;
+  font-size: 24px;
+  list-style-type: square;
+}
+.img-container {
+  text-align: right;
+  margin-right: 50px;
+  margin-top: -250px;
+}
+
+[name="solar-system"] {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.earth-body {
+  background-color: #cce7ff;
+}
+
+.sun-body {
+  background-color: #ffdb4a;
+}
+
+.sun-head-foot {
+  background-color: #df862c;
+}

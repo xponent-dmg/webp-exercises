@@ -1,0 +1,143 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Trebuchet MS;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: steelblue;
+  color: white;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bolder;
+  z-index: 10;
+}
+nav,
+aside {
+  position: fixed;
+  background-color: rgba(211, 211, 211, 0.693);
+  /* color: white; */
+  top: 120px;
+  height: 100vh;
+  padding-top: 10px;
+  z-index: 5;
+}
+nav {
+  width: 20vw;
+}
+aside {
+  width: 21vw;
+  right: 0;
+}
+nav div {
+  margin: 15px 0 15px 15px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #333; /* Changed to a darker grey color */
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+footer div {
+  margin: 20px;
+}
+
+.main {
+  position: relative;
+  margin: 120px 21vw 100px 20vw;
+  padding: 15px;
+}
+
+.intro {
+  width: 57vw;
+  height: 17vh;
+  background-color: rgba(70, 131, 180, 0.801);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 30px;
+  box-shadow: 3px 3px 5px gray;
+}
+
+figure {
+  width: 200px;
+  margin-left: 21vw;
+  margin-top: 30px;
+}
+
+img {
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 3px 3px 5px gray;
+}
+
+.section {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.arrow::before {
+  content: "> ";
+}
+li {
+  margin: 5px 0 5px 0;
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #d7d7d7;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+progress.programming::-webkit-progress-value {
+  background-color: #3c63cc; /* Changed to a blue color */
+}
+progress.prob::-webkit-progress-value {
+  background-color: #43b7a4; /* Changed to a teal color */
+}
+progress.proj::-webkit-progress-value {
+  background-color: #30a663; /* Changed to a green color */
+}
+
+iframe {
+  border: 1px solid black;
+}
+
+a {
+  text-decoration: none;
+}
+.mail {
+  color: steelblue;
+}
+a:hover {
+  color: steelblue;
+}
+
+nav div a {
+  color: black;
+}

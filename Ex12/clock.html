@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .clock-container {
+            text-align: center;
+        }
+        canvas {
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <h1>Analog Clock</h1>
+        <canvas id="clockCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('clockCanvas');
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.height / 2 * 0.9;
+        
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        
+        setInterval(drawClock, 1000);
+        
+        drawClock();
+        
+        function drawClock() {
+            ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+            
+            drawFace();
+            
+            drawNumbers();
+            
+            const now = new Date();
+            const hour = now.getHours() % 12;
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+            
+            drawHand(ctx, hour * 30 + (minute / 2), radius * 0.5, radius * 0.07, '#333');
+            
+            drawHand(ctx, minute * 6 + (second / 10), radius * 0.8, radius * 0.05, '#555');
+            
+            drawHand(ctx, second * 6, radius * 0.85, radius * 0.02, '#D40000');
+            
+            drawCenterCircle();
+        }
+        
+        function drawFace() {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = radius * 0.05;
+            ctx.stroke();
+        }
+        
+        function drawNumbers() {
+            ctx.font = radius * 0.15 + "px Arial";
+            ctx.fillStyle = "#333";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            
+            for (let num = 1; num <= 12; num++) {
+                const angle = (num * 30 - 90) * Math.PI / 180;
+                const x = Math.cos(angle) * (radius * 0.75);
+                const y = Math.sin(angle) * (radius * 0.75);
+                ctx.fillText(num.toString(), x, y);
+            }
+        }
+        
+        function drawHand(ctx, angle, length, width, color) {
+            const radians = (angle - 90) * Math.PI / 180;
+            
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = color;
+            
+            ctx.moveTo(0, 0);
+            ctx.lineTo(Math.cos(radians) * length, Math.sin(radians) * length);
+            ctx.stroke();
+        }
+        
+        function drawCenterCircle() {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.07, 0, 2 * Math.PI);
+            ctx.fillStyle = '#D40000';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.05, 0, 2 * Math.PI);
+            ctx.fillStyle = '#333';
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

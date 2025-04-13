@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <script src="patient.js" defer></script>
+    <style>
+        th,td{
+            padding: 5px 10px;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        input{
+            margin:15px 10px;
+        }
+        table{
+            margin: 15px 10px;
+        }
+        fieldset{
+            width: 400px;
+            margin: 50px 0;
+        }
+        legend{
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table id="desc" class="hidden" border="1">
+        <thead>
+            <tr>
+                <th>P-Id</th>
+                <th style="width: 100px;">Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="descTable"></tbody>
+    </table>
+    <button onclick="sortDescAge()">Sort in descending order of age</button>
+    <button onclick="displayTable()">Sort based on PID</button>
+    <br>
+    <fieldset>
+        <legend>Search</legend>
+        <label>Enter the P-Id to search: <input type="number" id="pid-search" required></label><br>
+        <button onclick="searchPID()">search</button><br>
+    </fieldset>
+    <fieldset style="width:300px">
+        <legend>Age range</legend>
+        <label for="min-age">minimum age<input type="number" name="min-age" required></label><br>
+        <label for="max-age">maximum age <input type="number" name="max-age" required></label>
+        <button onclick="filterByAge()">filter</button>
+    </fieldset>
+    <table id="filter" class="hidden" border="1">
+        <thead>
+            <tr>
+                <th>P-Id</th>
+                <th style="width: 100px;">Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="filterTable"></tbody>
+    </table>
+</body>
+</html>

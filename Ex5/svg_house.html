@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>svg house</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="margin: 40px">
+    <h1>My house using SVG</h1>
+    <div>
+      <svg width="150px" height="100px" style="margin: 0 0 0 200px">
+        <!--moon-->
+        <circle
+          cx="110"
+          cy="50"
+          r="35"
+          stroke="black"
+          stroke-width="2px"
+          fill="yellow"
+        />
+        <circle cx="135" cy="50" r="27" fill="white" />
+        s
+
+        <!--star-->
+        <polyline
+          points="40,30 45,40 55,40 50,50 53,60 40,55 27,60 30,50 25,40 35,40 40,30"
+          fill="yellow"
+          stroke="black"
+          stroke-width="1.5px"
+        />
+      </svg>
+    </div>
+    <svg width="300px" height="350px">
+      <!--roof-->
+      <polygon
+        points="150,20 60,140 240,140"
+        fill="brown"
+        stroke="black"
+        stroke-width="3px"
+      />
+      <!--yellow round-->
+      <circle
+        cx="150"
+        cy="95"
+        r="15"
+        fill="yellow"
+        stroke="black"
+        stroke-width="2px"
+      />
+      <!--wall-->
+      <polygon
+        points="240,140 240,330 60,330 60,140"
+        fill="rgba(80,10,10,0.85)"
+        stroke="black"
+        stroke-width="3px"
+      />
+      <!--windows-->
+      <polygon
+        points="80,160 115,160 115,195 80,195"
+        fill="lightblue"
+        stroke="black"
+        stroke-width="3px"
+      />
+      <polygon
+        points="220,160 185,160 185,195 220,195"
+        fill="lightblue"
+        stroke="black"
+        stroke-width="3px"
+      />
+      <!--door-->
+      <polygon
+        points="170,215 170,310 130,310 130,215"
+        fill="rgba(40,30,0,0.9)"
+        stroke="black"
+        stroke-width="4px"
+      />
+      <!--stairs-->
+      <polygon
+        points="120,310 180,310 180,330 120,330"
+        fill="grey"
+        stroke="black"
+        stroke-width="2px"
+      />
+      <polygon
+        points="125,330 175,330 175,340 125,340"
+        fill="grey"
+        stroke="black"
+        stroke-width="2px"
+      />
+    </svg>
+  </body>
+</html>

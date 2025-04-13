@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1150 - JavaScript Basics</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Basics</h1>
+      <p>Click the buttons below to execute different JavaScript functions</p>
+    </header>
+
+    <div class="button-container">
+      <button class="calc-button" onclick="calculate()">
+        Basic Calculator
+      </button>
+      <button class="calc-button" onclick="ageCalc()">Age Verification</button>
+      <button class="calc-button" onclick="confirmStud()">
+        Student Confirmation
+      </button>
+      <button class="calc-button" onclick="calcCost()">Cost Calculator</button>
+      <button class="calc-button" onclick="detBox()">Display Details</button>
+      <button class="calc-button" onclick="clearResults()">
+        Clear Results
+      </button>
+    </div>
+
+    <div id="result">
+      <h2 class="result-title">Results</h2>
+      <div id="output">
+        <p>Click any button above to see the result here.</p>
+      </div>
+    </div>
+
+    <a href="../index.html" class="back-button">Back to Exercises</a>
+
+    <script>
+      function calculate() {
+        // Clear previous results
+        document.getElementById("output").innerHTML = "";
+
+        let num1 = parseInt(prompt("Enter first number: "));
+        let num2 = parseInt(prompt("Enter second number: "));
+
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("output").innerHTML =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        let result = "";
+        result += num1 + " + " + num2 + " = " + (num1 + num2) + "<br>";
+        result += num1 + " - " + num2 + " = " + (num1 - num2) + "<br>";
+        result += num1 + " x " + num2 + " = " + num1 * num2 + "<br>";
+        result += num1 + " ÷ " + num2 + " = " + num1 / num2 + "<br>";
+        result += num1 + " % " + num2 + " = " + (num1 % num2);
+
+        document.getElementById("output").innerHTML = result;
+      }
+
+      function ageCalc() {
+        document.getElementById("output").innerHTML = "";
+
+        let age = prompt("Enter your age: ");
+        let message =
+          "You're" + (age >= 18 ? " " : " not ") + "eligible to drive";
+        alert(message);
+
+        document.getElementById("output").innerHTML =
+          "Age: " + age + "<br>" + message;
+      }
+
+      function confirmStud() {
+        document.getElementById("output").innerHTML = "";
+
+        let isStudent = confirm("Are you a student?");
+        let regno = prompt("Enter your register number: ");
+
+        document.getElementById("output").innerHTML =
+          "Student status: " +
+          (isStudent ? "Yes" : "No") +
+          "<br>" +
+          "Your register number is: " +
+          regno;
+      }
+
+      function calcCost() {
+        document.getElementById("output").innerHTML = "";
+
+        let hours = parseFloat(prompt("How many hours did you work?"));
+        let materialCost = parseFloat(
+          prompt("What was the cost of materials?")
+        );
+
+        if (isNaN(hours) || isNaN(materialCost)) {
+          document.getElementById("output").innerHTML =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        const rph = 45;
+        let labCost = rph * hours;
+        let totCost = labCost + materialCost;
+
+        document.getElementById(
+          "output"
+        ).innerHTML = `Labour cost is $${labCost.toFixed(
+          2
+        )} and the total cost is $${totCost.toFixed(2)}`;
+      }
+
+      function detBox() {
+        document.getElementById("output").innerHTML = "";
+
+        let name = prompt("Enter your name: ");
+        let reg = prompt("Enter your reg no: ");
+
+        document.getElementById("output").innerHTML =
+          `<div class="box">${reg}</div><br>` +
+          `<div class="name-box">${name}</div>`;
+      }
+
+      function clearResults() {
+        document.getElementById("output").innerHTML = "<p>Results cleared.</p>";
+      }
+    </script>
+  </body>
+</html>

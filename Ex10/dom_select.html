@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <style>
+        fieldset{
+            width:300px;
+            margin: 20px 5px;
+        }
+        label{
+            margin-left: 10px;
+        }
+    </style>
+    <script defer>
+        function updateChanges(){
+            document.getElementById(`heading`).textContent = "Updated Title";
+            document.getElementsByName('username')[0].value = "John Doe";
+            let gender = document.getElementsByName('gender');
+            gender.forEach(elem => {
+                if(elem.checked){
+                    console.log(`${elem.value}`);
+                }
+            })
+            
+            let paraTags = document.getElementsByTagName("p");
+            console.log(`No. of <p> tags : ${paraTags.length}`);
+            
+            let ulTag = document.getElementsByTagName("ul")[0];
+            let liTags = ulTag.getElementsByTagName("li");
+            console.log("\nText content of <li> tags:\n");
+            Array.from(liTags).forEach(elem =>{
+                console.log(elem.textContent);
+            })
+
+            let inputField = document.getElementsByClassName(`input-field`);
+            Array.from(inputField).forEach(elem => {
+                elem.style.backgroundColor = "lightblue";
+            })
+
+            document.querySelector("p.info").textContent = "This is the first info paragraph";
+            document.querySelector(`[name="gender"]`).checked = true;
+
+            let paraInfo = document.querySelectorAll(`p.info`);
+            console.log(`\n`);
+            paraInfo.forEach(elem => console.log(elem.textContent));
+            let hobbies = document.querySelectorAll(`.hobby`);
+            console.log("\n");
+            
+            hobbies.forEach(elem => {
+                elem.checked = true;
+                console.log(elem.value);
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1 id="heading">Initial Title</h1>
+    <form>
+        <fieldset>
+            <legend>Username</legend>
+            <input type="text" name="username" class="input-field">
+        </fieldset>
+        <fieldset>
+            <legend class="input-field">Gender</legend>
+            <label for="male">Male<input type="radio" id="male" name="gender" value="male"></label>
+            <label for="female">Female<input type="radio" id="female" name="gender" value="female"></label>
+        </fieldset>
+    </form>
+
+    <p class="info">I don't have any info yet</p>
+    <p>I will never have any info</p>
+    <p class="info">I will get displayed later</p>
+
+    <b>Skills</b>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <fieldset class="input-field">
+        <legend >Hobbies</legend>
+        <label>Singing</label><input type="checkbox" class="hobby" value="Singing">
+        <label>Dancing</label><input type="checkbox" class="hobby" value="Dancing">
+        <label>Painting</label><input type="checkbox" class="hobby" value="Painting">
+    </fieldset>
+    <button onclick="updateChanges()">Show changes</button>
+</body>
+</html>

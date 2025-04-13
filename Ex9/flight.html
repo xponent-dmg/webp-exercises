@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <script src="flight.js" defer></script>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+        }
+        header{
+            background-color: steelblue;
+            color: #fff;
+            margin-bottom: 20px;
+            padding: 20px 0px;
+            text-align: center;
+        }
+        main{
+            padding:10px;
+        }
+        input{
+            margin: 5px 0;
+        }
+        button{
+            margin-bottom:20px;
+            font-family: 'Courier New', Courier, monospace;
+            margin-left: 60px;
+        }
+        .boarding-pass{
+            /* margin-left: 300px; */
+            width:600px;
+            height: 400px;
+            border:2px solid black;
+        }
+        fieldset{
+            width:250px;
+            padding: 10px;
+            margin: 20px;
+        }
+        legend{
+            font-weight:bold;
+        }
+        .centerme{
+            text-align: center;
+        }
+        .padme{
+            padding-left: 30px;
+            font-weight: bold;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="margin:0px">Book your flights here</h1>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Enter your name</legend>
+                <input type="text" id="name" required>
+            </fieldset>
+            <fieldset>
+                <legend>Choose ticket type</legend>
+                <label for="class">
+                    First class : 1<br>
+                    Economy: 2<br>
+                    <input type="number" id="type" pattern="[12]" name="class" placeholder="Enter 1 or 2" required>
+                </label>
+            </fieldset>
+        </form>
+        <br>
+        <button onclick="submitDet()">Get the boarding pass</button>
+        <div style="display: flex;justify-self: center;">
+            <table class="boarding-pass hidden">
+                <tr style="background-color: steelblue;color: white; font-size: 20px;">
+                    <th colspan="3" style="padding: 0;">Boarding Pass</th>
+                </tr>
+                <tr>
+                    <td class="padme">Name</td>
+                    <td class="centerme">:</td>
+                    <td class="centerme" id="ticket-name">Harishankar R</td>
+                </tr>
+                <tr>
+                    <td class="padme">Seat no.</td>
+                    <td class="centerme">:</td>
+                    <td class="centerme" id="seat-no">6</td>
+                </tr>
+                <tr>
+                    <td class="padme">Class</td>
+                    <td class="centerme">:</td>
+                    <td class="centerme" id="ticket-class">Economy</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

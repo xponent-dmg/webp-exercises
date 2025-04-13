@@ -1,0 +1,77 @@
+body {
+  font-family: Courier New;
+  margin: 0;
+}
+main {
+  margin-left: 40px;
+  margin-bottom: 150px;
+  margin-top: 150px;
+}
+header,
+footer {
+  padding: 35px;
+  text-align: center;
+  font-size: 34px;
+  background-color: steelblue;
+  font-weight: bolder;
+  color: white;
+  width: 100%;
+  position: fixed;
+}
+header {
+  top: 0;
+}
+footer {
+  margin-top: 7.5vh;
+  bottom: 0;
+  height: 40px;
+}
+
+fieldset {
+  width: 40vw;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px;
+  font-family: Courier new;
+  font-weight: bold;
+}
+
+.reslegend {
+  color: red;
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.inp {
+  margin-left: 50px;
+}
+
+.inp::before {
+  content: ": ";
+}
+
+.resume {
+  margin: 40px;
+}
+
+.address {
+  margin-left: 42px;
+  margin-top: 20px;
+}
+
+.guitar-img {
+  height: 30vh;
+  width: auto;
+  text-align: center;
+}

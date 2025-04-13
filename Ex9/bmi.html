@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        header{
+            background-color: steelblue;
+            position: fixed;
+            top:0;
+            width: 100%;
+            color: white;
+            color:white;
+            display: flex;
+            justify-content: center;
+        }
+        main{
+            margin-top: 100px;
+        }
+        .main-section{
+            display: flex;
+            justify-content: center;
+
+        }
+        fieldset{
+            width:300px;
+        }
+        input{
+            margin: 5px 5px;
+        }
+        label{
+            font-weight: bold;
+        }
+        span{
+            color: grey;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        table{
+            margin-top: 20px;
+        }
+        td{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <header><h2>BMI calculator</h2></header>
+    <main>
+        <div class="main-section">
+            <form>
+            <fieldset>
+                <label>BMI calculator: </label>
+                <select name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label>Enter your weight: </label><br>
+                <span class="unit">(in pounds)</span>
+                <input type="text" name="weight" id="weight" pattern="^\d+(\.\d+)?$">
+            </fieldset>
+            <fieldset>
+                <label for="height">Enter your height: </label><br>
+                <span>(in feet)</span>
+                <input type="number" name="feet" id="feet"><br>
+                <span>(in inches)</span>
+                <input type="number" name="inches" id="inches">
+            </fieldset>
+            <fieldset style="display: flex;justify-content: center;">
+                <button type="button" onclick="calcBMI()">Calculate</button>
+            </fieldset>
+            <div id="bmi-res" class="hidden" style="display: flex;justify-content: center;padding-top: 10px;">
+                <div style="margin: 5px 0;">
+                    Your BMI:
+                </div>
+                <input type="text" name="result" id="bmi" readonly>
+            </div>
+        </form>
+        </div>
+        <div class="main-section hidden">
+        <table border="1px">
+            <tr>
+                <th>Adult</th>
+                <th>Women</th>
+                <th>Men</th>
+            </tr>
+            <tr>
+                <td>Anorexia</td>
+                <td colspan="2">Less than 17.50</td>
+            </tr>
+            <tr>
+                <td>Underweight</td>
+                <td>17.51 - 19.10</td>
+                <td>17.501 - 20.70</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>Ideal range</td>
+                <td>19.11 - 25.80</td>
+                <td>20.71 - 26.40</td>
+            </tr>
+            <tr>
+                <td>Marginally overweight range</td>
+                <td>25.81 - 27.30</td>
+                <td>26.41 - 27.80</td>
+            </tr>
+            <tr>
+                <td>Overweight range</td>
+                <td>27.31 - 32.30</td>
+                <td>27.81 - 31.10</td>
+            </tr>
+            <tr>
+                <td>Obese range</td>
+                <td>More than 32.30</td>
+                <td>More than 31.10</td>
+            </tr>
+        </table>
+        </div>
+    </main>
+    <script src="bmi.js"></script>
+</body>
+</html>

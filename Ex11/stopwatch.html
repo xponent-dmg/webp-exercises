@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1150</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS";
+        /* background: url("clock.jpg");
+        background-repeat: no-repeat;
+        background-size: cover; */
+      }
+      header,
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      header {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        height: 10vh;
+      }
+      #display {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border: 1px solid gray;
+        width: 600px;
+        height: 400px;
+        margin-top: 30px;
+        border-radius: 10px;
+        /* backdrop-filter: blur(50px) brightness(200%);
+        background: transparent; */
+        box-shadow: 2px 2px 5px 1px lightgrey;
+      }
+      #timebox {
+        font-size: 45px;
+        font-weight: bolder;
+        display: flex;
+        justify-content: center;
+        margin: 30px 10px;
+      }
+      #buttons {
+        display: flex;
+        justify-content: space-around;
+      }
+      button {
+        font: normal 20px "Trebuchet MS";
+        background-color: #ff7e5f;
+        color: white;
+        border-radius: 17px;
+        padding: 8px 17px;
+        border: none;
+      }
+      button:active {
+        box-shadow: inset 0 0 2px 2px grey;
+      }
+      .mod-timers {
+        font: normal 16px "Trebuchet MS";
+        margin: 5px 10px;
+      }
+      sub {
+        font-weight: normal;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Basic stopwatch</h1>
+    </header>
+    <main>
+      <div id="display">
+        <div id="timebox">
+          <span id="hrs" class="time">00</span> :
+          <span id="min" class="time">00</span> :
+          <span id="sec" class="time">00</span>
+          <sub id="ms" class="time">00</sub>
+        </div>
+        <div id="buttons">
+          <button id="start-btn">Start</button>
+          <button id="stop-btn">Stop</button>
+          <button id="reset-btn">Reset</button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    let hrs = document.querySelector(`#hrs`);
+    let min = document.querySelector(`#min`);
+    let sec = document.querySelector(`#sec`);
+    let ms = document.querySelector(`#ms`);
+    let timerId;
+
+    function startTimer() {
+      timerId = setInterval(() => {
+        if (ms.textContent == "99") {
+          ms.textContent = "00";
+          sec.textContent = String(parseInt(sec.textContent) + 1).padStart(
+            2,
+            "0"
+          );
+          if (sec.textContent == "59") {
+            sec.textContent = "00";
+            min.textContent = String(parseInt(min.textContent) + 1).padStart(
+              2,
+              "0"
+            );
+            if (min.textContent == "59") {
+              min.textContent = "00";
+              hrs.textContent = String(parseInt(hrs.textContent) + 1).padStart(
+                2,
+                "0"
+              );
+            }
+          }
+        } else {
+          ms.textContent = String(parseInt(ms.textContent) + 1).padStart(
+            2,
+            "0"
+          );
+        }
+      }, 10);
+    }
+
+    function stopTimer() {
+      clearInterval(timerId);
+    }
+
+    function resetTimer() {
+      clearInterval(timerId);
+      hrs.textContent = "00";
+      min.textContent = "00";
+      sec.textContent = "00";
+      ms.textContent = "00";
+    }
+
+    const start = document.querySelector(`#start-btn`);
+    start.onclick = startTimer;
+
+    document.querySelector(`#stop-btn`).onclick = stopTimer;
+    document.querySelector(`#reset-btn`).onclick = resetTimer;
+  </script>
+</html>

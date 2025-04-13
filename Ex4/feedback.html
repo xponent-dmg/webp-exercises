@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback of a product</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>Feedback Form</header>
+    <main>
+      <h3 align="center">Lindo Neptune V3</h3>
+      <div class="guitar-img">
+        <img src="guitar.jpg" height="100%" />
+      </div>
+      <form style="text-align: center; margin: 20px" oninput="getTotal()">
+        <table align="center">
+          <tr>
+            <td><label for="sound">Sound Quality</label></td>
+            <td>
+              <span class="inp"
+                ><input type="range" id="sound" min="1" max="10"
+              /></span>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="comfort">Comfort</label></td>
+            <td>
+              <span class="inp"
+                ><input type="range" id="comfort" min="1" max="10"
+              /></span>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="build">Build Quality</label></td>
+            <td>
+              <span class="inp"
+                ><input id="build" type="range" min="1" max="10"
+              /></span>
+            </td>
+          </tr>
+        </table>
+        <div style="margin: 40px">
+          <label>Total (out of 30) : <output id="total">18</output></label>
+        </div>
+      </form>
+      <script>
+        function getTotal() {
+          const sound = document.getElementById("sound").value;
+          const quality = document.getElementById("build").value;
+          const comfort = document.getElementById("comfort").value;
+          const total = parseInt(sound) + parseInt(quality) + parseInt(comfort);
+          document.getElementById("total").textContent = total;
+        }
+      </script>
+    </main>
+    <footer>
+      <a href="resume.html"><button>go back</button></a>
+    </footer>
+  </body>
+</html>

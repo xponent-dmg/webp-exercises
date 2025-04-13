@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1150</title>
+    <link rel="stylesheet" href="grocery.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Grocery Order Form</h2>
+    </header>
+    <main>
+      <form action="receipt.html">
+        <fieldset class="input-box">
+          <legend>Customer name</legend>
+          <input
+            type="text"
+            id="first-name"
+            class="details"
+            placeholder="first name"
+            required
+          />
+          <input
+            type="text"
+            id="last-name"
+            class="details sec"
+            placeholder="last name"
+          />
+        </fieldset>
+        <fieldset class="input-box">
+          <legend>Phone Number</legend>
+          <input
+            type="text"
+            id="pri-number"
+            class="details"
+            pattern="^[0-9]{10}$"
+            required
+          />
+          <input
+            type="text"
+            id="sec-number"
+            class="details sec"
+            pattern="^[0-9]{10}$"
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Email</legend>
+          <input
+            type="email"
+            class="details"
+            placeholder="user@gmail.com"
+            value="user@gmail.com"
+            required
+          />
+        </fieldset>
+        <fieldset id="product-div">
+          <legend>Products</legend>
+          <div class="prod-list">
+            <img src="apple-img.jpg" class="product" />
+            <input
+              type="checkbox"
+              name="fruits"
+              id="apple"
+              class="prod-check"
+            />Apple<label for="apple"></label>
+            <span id="apple-price">$10</span>
+            <label
+              ><input type="number" id="apple-weight" name="weight" />kg</label
+            >
+          </div>
+          <div class="prod-list">
+            <img src="banana-img.webp" class="product" />
+            <input
+              type="checkbox"
+              name="fruits"
+              id="banana"
+              class="prod-check"
+            />Banana<label for="banana"></label>
+            <span id="banana-price">$5</span>
+            <label
+              ><input type="number" id="banana-weight" name="weight" />kg</label
+            >
+          </div>
+          <div class="prod-list">
+            <img src="avocado-img.webp" class="product" />
+            <input
+              type="checkbox"
+              name="fruits"
+              id="avocado"
+              class="prod-check"
+            />Avocado<label for="avocado"></label>
+            <span id="avocado-price">$7</span>
+            <label
+              ><input
+                type="number"
+                id="avocado-weight"
+                name="weight"
+              />kg</label
+            >
+          </div>
+        </fieldset>
+        <button onclick="submitForm()">SUBMIT</button>
+      </form>
+    </main>
+    <script src="grocery.js"></script>
+  </body>
+</html>

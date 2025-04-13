@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+    <style>
+        .section{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            width:40px;
+            box-shadow: inset 1px 1px grey;
+            margin-left:5px;
+        }
+        label{
+            margin:10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>TICKET BOOTH</h1></header>
+    <main>
+        <div class="section">
+            <label>Adults (₹10 each)<br><input type="number" id="adult" value="0"/></label>
+            <label>Children (₹5 each)<br><input type="number" id="child" value="0"/></label>
+            <div style="margin: 10px;">
+                <button onclick="calcTotal()">Total</button>
+                <input type="text" id="total" readonly/>
+            </div>
+        </div>
+    </main>
+    <script src="ticket_booth.js"></script>
+</body>
+</html>

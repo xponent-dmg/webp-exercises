@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1150</title>
+    <style>
+      body {
+        font-family: "Trebuchet MS";
+        margin: 0;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(120 124 196);
+        height: 80px;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+      td,
+      th {
+        padding: 15px 30px;
+      }
+      th {
+        background-color: rgb(120 124 196);
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Receipt</h2>
+    </header>
+    <main>
+      <table border="1">
+        <tr>
+          <td colspan="4">Name:</td>
+        </tr>
+        <tr>
+          <td colspan="4">Phone No.</td>
+        </tr>
+        <tr>
+          <td colspan="4">Email:</td>
+        </tr>
+        <tr>
+          <th colspan="4">Products</th>
+        </tr>
+        <tr>
+          <th>Product name</th>
+          <th>Unit price</th>
+          <th>Qty (in kg)</th>
+          <th>Total price</th>
+        </tr>
+      </table>
+    </main>
+    <script>
+      const name = sessionStorage.getItem("name");
+      const primaryNo = sessionStorage.getItem("primaryNo");
+      const email = sessionStorage.getItem("email");
+      const apple = JSON.parse(sessionStorage.getItem("apple"));
+      const banana = JSON.parse(sessionStorage.getItem("banana"));
+      const avocado = JSON.parse(sessionStorage.getItem("avocado"));
+      const table = document.querySelector("table");
+      table.rows[0].cells[0].innerHTML = `<b>Name:</b> ${name}`;
+      table.rows[1].cells[0].innerHTML = `<b>Phone No:</b> ${primaryNo}`;
+      table.rows[2].cells[0].innerHTML = `<b>Email:</b> ${email}`;
+      let sum = 0;
+      appendRow(apple);
+      appendRow(banana);
+      appendRow(avocado);
+
+      function appendRow(prodName) {
+        if (prodName[1]) {
+          const newRow = document.createElement("tr");
+          const cell0 = document.createElement("td");
+          cell0.textContent = prodName[0];
+          const cell1 = document.createElement("td");
+          cell1.textContent = `$${prodName[2]}`;
+          const cell2 = document.createElement("td");
+          cell2.textContent = prodName[3];
+          const cell3 = document.createElement("td");
+          cell3.textContent = `$${prodName[2] * prodName[3]}`;
+          newRow.append(cell0, cell1, cell2, cell3);
+          table.appendChild(newRow);
+          sum += prodName[2] * prodName[3];
+        }
+      }
+      const grandTotal = document.createElement("tr");
+      grandTotal.style.border = "none";
+      const lastCell = document.createElement("th");
+      lastCell.colSpan = 4;
+      lastCell.textContent = `Grand Total: $${sum}`;
+      grandTotal.appendChild(lastCell);
+      table.append(grandTotal);
+    </script>
+  </body>
+</html>

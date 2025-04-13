@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1150</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input,
+      button,
+      div {
+        margin: 10px;
+      }
+      button,
+      input {
+        font: 17px "Trebuchet MS";
+      }
+      #age-box {
+        font: 20px "Trebuchet MS";
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        background-color: rgb(113, 103, 200);
+        border-radius: 20px;
+        padding: 15px 30px;
+        color: white;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+      [name="count"] {
+        width: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <label for="dob"><h4>Select your DOB</h4></label>
+      <input type="date" name="dob" id="dob" value="2006-02-21" />
+      <div id="age-box" class="hidden"></div>
+    </div>
+    <div class="section">
+      <textarea
+        cols="30"
+        rows="10"
+        placeholder="enter comments here"></textarea>
+      <label
+        >Count of keypress: <input type="text" name="count" readonly
+      /></label>
+    </div>
+  </body>
+  <script>
+    const dob = document.querySelector(`#dob`);
+    const ageBox = document.querySelector(`#age-box`);
+    document.querySelector(`#dob`).addEventListener("mouseover", () => {
+      const date = new Date(dob.value);
+      const now = Date.now();
+      const age = (now - date) / (1000 * 60 * 60 * 24 * 365.25);
+      const years = Math.floor(age);
+      const remainingDays =
+        (now - date - years * 365.25 * 24 * 60 * 60 * 1000) /
+        (1000 * 60 * 60 * 24);
+      const months = Math.floor(remainingDays / 30.44);
+      const days = Math.floor(remainingDays % 30.44);
+      const hours = Math.floor((remainingDays % 1) * 24);
+      const minutes = Math.floor(((remainingDays % 1) * 24 - hours) * 60);
+      ageBox.classList.remove("hidden");
+      ageBox.innerHTML = `You are ${Math.floor(age)} years old`;
+      const moreInfo = document.createElement(`button`);
+      moreInfo.textContent = "More Info";
+      moreInfo.id = "more";
+      ageBox.appendChild(moreInfo);
+      moreInfo.onclick = () => {
+        ageBox.innerHTML += `<br>${months} months ${days} days<div>${hours} hrs ${minutes} min</div>`;
+      };
+    });
+    let count = 0;
+    document.querySelector(`textarea`).addEventListener("keydown", () => {
+      const countVal = document.querySelector(`[name="count"]`);
+      countVal.value = ++count;
+    });
+  </script>
+</html>

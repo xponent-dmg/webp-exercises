@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1150</title>
+</head>
+<body onload="drawScene()">
+    <canvas id="canvas" width="700" height="400" style="border:1px solid black;"></canvas>
+
+    <script>
+        let boatX = 350;
+        let boatSpeed = 1;
+        let boatDirection = 1;
+        let animationId;
+
+        function drawScene() {
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            animateScene(ctx);
+        }
+
+        function animateScene(ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#E5A33F";
+            ctx.fillRect(100, 200, 100, 100);
+
+            ctx.fillStyle = "#8B0000";
+            ctx.beginPath();
+            ctx.moveTo(100, 200);
+            ctx.lineTo(200, 200);
+            ctx.lineTo(150, 150);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = "blue";
+            ctx.fillRect(120, 220, 20, 20);
+
+            ctx.fillStyle = "#5C2018";
+            ctx.fillRect(160, 250, 25, 50);
+
+            ctx.fillStyle = "lightblue";
+            ctx.beginPath();
+            ctx.ellipse(350, 250, 100, 50, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            boatX += boatSpeed * boatDirection;
+            
+            if (boatX > 420) {
+                boatDirection = -1;
+            } else if (boatX < 280) {
+                boatDirection = 1;
+            }
+
+            ctx.fillStyle = "#5C2018";
+            ctx.beginPath();
+            ctx.moveTo(boatX - 25, 245);
+            ctx.lineTo(boatX + 25, 245);
+            ctx.lineTo(boatX + 15, 260);
+            ctx.lineTo(boatX - 15, 260);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.strokeStyle = "#3A1308";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(550, 80, 40, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = "yellow";
+            for (let i = 0; i < 12; i++) {
+                let angle = (i * Math.PI) / 6;
+                let x1 = 550 + Math.cos(angle) * 45;
+                let y1 = 80 + Math.sin(angle) * 45;
+                let x2 = 550 + Math.cos(angle) * 60;
+                let y2 = 80 + Math.sin(angle) * 60;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+            }
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(580, 270, 5, 50);
+
+            ctx.fillStyle = "pink";
+            for (let i = 0; i < 5; i++) {
+                let angle = (i * Math.PI * 2) / 5;
+                let x = 582 + Math.cos(angle) * 25;
+                let y = 260 + Math.sin(angle) * 25;
+                ctx.beginPath();
+                ctx.arc(x, y, 15, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(582, 260, 7, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(500, 280, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = "#CC9900";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.arc(520, 270, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(525, 265, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "orange";
+            ctx.beginPath();
+            ctx.moveTo(530, 270);
+            ctx.lineTo(540, 275);
+            ctx.lineTo(530, 278);
+            ctx.closePath();
+            ctx.fill();
+            ctx.strokeStyle = "#CC7000";
+            ctx.stroke();
+
+            ctx.fillStyle = "gray";
+            let rocks = [
+                [130, 320, 15], [115, 330, 10], [145, 330, 18],
+                [560, 330, 15], [545, 340, 10], [570, 340, 12]
+            ];
+            rocks.forEach(([x, y, r]) => {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = "blue";
+                ctx.stroke();
+            });
+            
+            animationId = requestAnimationFrame(() => animateScene(ctx));
+        }
+    </script>
+</body>
+</html>
